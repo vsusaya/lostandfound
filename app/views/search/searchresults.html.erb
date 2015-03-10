@@ -1,0 +1,27 @@
+
+
+<h1>Search Results</h1>
+
+<table>
+
+
+  <tbody>
+  	<td><b>Title</b></td>
+    <td><b>Description</b></td>
+    <td><b>Item Type</b></td>
+
+    <% @searches.each do |result| %>
+      <tr>
+        <td><%= result.title %></td>
+        <td><%= result.description %></td>
+        <td><%= result.item_type %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<a href="/items">Back to Items</a>
+
+

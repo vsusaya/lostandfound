@@ -1,8 +1,10 @@
-<%= form_tag("/search", method: "get") do %>
-	<%= label_tag(:q, "Search for item type: ") %>
-	<%= text_field_tag(:q) %>
+<%= form_tag({controller: "search", action: "searchresults"}, method: "get") do %>
+	<%= label_tag(:item_type, "Search for item type: ") %>
+	<%= text_field_tag(:item_type) %>
 	<%= submit_tag("Search") %>
 
 
 
 <% end %>
+
+<a href="/items">Back to Items</a>
