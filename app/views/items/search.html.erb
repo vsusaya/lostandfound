@@ -1,10 +1,33 @@
+<body>
+
+<style>
+#form_area {
+	width: 30%;
+
+}
+
+</style>
+
+<div id="form_area">
 <%= form_tag({controller: "search", action: "searchresults"}, method: "get") do %>
-	<%= label_tag(:item_type, "Search for item type: ") %>
-	<%= text_field_tag(:item_type) %>
+	
+	<%= label_tag(:type_id, "Search for All (AND) vs Any (OR) of these conditions: ") %>
+	<%= select_tag(:searchby, options_for_select([["AND", 1], ["OR", 2]], 1)) %>
+	
+	
+	<%= label_tag(:type_id, "Search for item by owner: ") %>
+	<%= collection_select(:search, :owner, Item.all, :owner, :owner) %>
+	
+	<%= label_tag(:type_id, "Search for item by type: ") %>
+	<%= collection_select(:search, :id, Type.all, :id, :title) %>
+	
+	
 	<%= submit_tag("Search") %>
 
 
 
 <% end %>
+<div>
+</body>
 
 <a href="/items">Back to Items</a>

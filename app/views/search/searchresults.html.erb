@@ -8,13 +8,19 @@
   <tbody>
   	<td><b>Title</b></td>
     <td><b>Description</b></td>
-    <td><b>Item Type</b></td>
+    <td><b>Item Owner</b></td>
+    <td><b>Item Type ID</b></td>
+    <td><b>Item Type (name)</b></td>
 
     <% @searches.each do |result| %>
       <tr>
         <td><%= result.title %></td>
         <td><%= result.description %></td>
-        <td><%= result.item_type %></td>
+        <td><%= result.owner %></td>
+        <td><%= result.type_id %></td>
+        
+        <% the_type = Type.find(result.type_id).title%>
+        <td><%= the_type %> </td>
       </tr>
     <% end %>
   </tbody>
